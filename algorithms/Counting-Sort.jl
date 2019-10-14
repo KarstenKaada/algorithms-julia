@@ -19,8 +19,7 @@ function CountingSort(A, k)
         C[i] = C[i] + C[i-1]
     end
 
-    for j = 1:length(A)
-        i = length(A) + 1 - j
+    for j = length(A): -1 : 1
         B[C[A[j]]] = A[j]
         C[A[j]] = C[A[j]] - 1
     end
@@ -30,6 +29,4 @@ end
 
 #test
 println(CountingSort(
-    [4, 2, 3, 1, 1, 9, 8, 5, 4, 2, 3, 4, 5, 6, 2, 3, 1, 2, 4, 5, 1, 2,],
-    9
-))
+    [4, 2, 3, 1, 4, 2, 3, 4, 5, 6, 2, 3, 1, 2, 4, 5, 1, 2,],9))
