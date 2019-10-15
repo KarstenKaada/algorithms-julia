@@ -1,13 +1,7 @@
 function CountingSort(A, k)
-    C = Array{Int64}(undef, k + 1)
-    B = Array{Int64}(undef, length(A))
 
-    for i = 1:length(C)
-        C[i] = 0
-    end
-    for i = 1:length(B)
-        B[i] = 0
-    end
+	C = zeros(Int64, k + 1)
+    B = zeros(Int64, length(A))
 
 	#C[i] now contains the number of elements equal to i
     for i = 1:length(A)
@@ -20,7 +14,7 @@ function CountingSort(A, k)
     end
 
     for j = length(A): -1 : 1
-        B[C[A[j]]] = A[j]
+        B[C[A[j]]] = A[j]	
         C[A[j]] = C[A[j]] - 1
     end
 
@@ -29,4 +23,4 @@ end
 
 #test
 println(CountingSort(
-    [4, 2, 3, 1, 4, 2, 3, 4, 5, 6, 2, 3, 1, 2, 4, 5, 1, 2,],9))
+    [4,52,12,81,42,24,151,2,4,22,6,2,4,5,1,2,4],151))
